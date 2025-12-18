@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestWithASPNET10Erudio.Services;
 
-namespace RestWithASPNET10Erudio.Controllers
+namespace RestWithASPNET10Erudio.Controllers.V1
 {
     [Route("api/[controller]/v1")]
     [ApiController]
@@ -50,6 +50,11 @@ namespace RestWithASPNET10Erudio.Controllers
                 _logger.LogError("Error creating book {title}", books.Title);
                 return BadRequest();
             }
+
+            Response.Headers.Add("X-API-Deprecated", "true");
+            Response.Headers.Add("X-API-Deprecated-Info", "This API version is deprecated and will be removed in future releases. Please migrate to the latest version.");
+            Response.Headers.Add("X-API-Deprecated-Date", DateTime.UtcNow.AddMonths(6).ToString("o"));
+
             return Ok(createdBook);
         }
 

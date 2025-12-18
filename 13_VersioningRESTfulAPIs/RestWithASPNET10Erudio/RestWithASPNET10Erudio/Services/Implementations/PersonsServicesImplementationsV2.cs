@@ -1,5 +1,5 @@
 ﻿using RestWithASPNET10Erudio.Data.Converter.Implementation;
-using RestWithASPNET10Erudio.Data.DTO.V1;
+using RestWithASPNET10Erudio.Data.DTO.V2;
 using RestWithASPNET10Erudio.Model;
 using RestWithASPNET10Erudio.Repositories;
 
@@ -17,9 +17,9 @@ namespace RestWithASPNET10Erudio.Services.Implementations
         }
 
 
-        public PersonsDTO Create(PersonsDTO person)
+        public PersonsDTO Create(PersonsDTO persons)
         {
-            var entity = _converter.Parse(person);
+            var entity = _converter.Parse(persons);
             entity = _repository.Create(entity);
             return _converter.Parse(entity);
         }
