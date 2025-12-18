@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestWithASPNET10Erudio.Model;
 
-namespace RestWithASPNET10Erudio.Controllers
+namespace RestWithASPNET10Erudio.Controllers.V1
 {
     [ApiController]
     [Route("[controller]/v1")]
